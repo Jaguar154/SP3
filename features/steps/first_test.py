@@ -20,9 +20,13 @@ def step(context):
     context.browser.maximize_window()
 
 #Введем текст в строку поиска
-@then('enter text "{text}"')
+@then('enter text Google "{text}"')
 def step(context, text):
-    assert context.browser.find_element(By.XPATH, '//input[@id="text"]').send_keys("kek", Keys.ENTER)
+    context.browser.find_element(By.XPATH, '//input[@name="q"]').send_keys("kek", Keys.ENTER)
+
+@then('enter text Yandex "{text}"')
+def step(context, text):
+    context.browser.find_element(By.XPATH, '//input[@id="text"]').send_keys("kek", Keys.ENTER)
 
 @then('website "{url}"')
 def step(context, url):
